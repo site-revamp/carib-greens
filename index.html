@@ -1,0 +1,2004 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#354638">
+
+  <meta name="description" content="Discover Carib Greens' vision for AI-powered, solar-driven indoor farming and intelligent food production designed around the Caribbean.">
+
+  <title>Carib Greens | Intelligent Indoor Farming for the Caribbean</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400,20,1;9..144,500,20,1;9..144,600,20,1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-sage: #819171;
+      --brand-white: #FFFFFF;
+      --forest: #354638;
+      --forest-deep: #26382B;
+      --forest-soft: #596A50;
+      --leaf-pale: #D9E2D3;
+      --paper: #F4F7F1;
+      --paper-warm: #F4F5EF;
+      --surface: #F8F9F5;
+      --gold: #D9A95B;
+      --heading: #252D27;
+      --body: #465047;
+      --muted: #687267;
+      --border: #DFE5DA;
+      --strong-border: #B8C4B1;
+
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "Manrope", Arial, sans-serif;
+
+      --container: 1200px;
+      --shadow: 0 22px 70px rgba(38, 56, 43, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      background: #fff;
+      color: var(--body);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 64px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--forest-soft);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 27px;
+      height: 1px;
+      background: var(--brand-sage);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-top: 20px;
+      color: var(--heading);
+      font-family: var(--serif);
+      font-size: clamp(38px, 4.5vw, 58px);
+      font-weight: 500;
+      letter-spacing: -.045em;
+      line-height: 1.08;
+    }
+
+    .section-heading em {
+      color: var(--brand-sage);
+      font-weight: 400;
+    }
+
+    .section-intro {
+      max-width: 650px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .button {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 23px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background: var(--forest);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      transition: .25s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: var(--forest-deep);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      border-color: var(--strong-border);
+      background: transparent;
+      color: var(--forest);
+    }
+
+    .button-outline:hover {
+      border-color: var(--forest);
+      background: var(--forest);
+      color: #fff;
+    }
+
+    .button-light {
+      border-color: rgba(255,255,255,.5);
+      background: transparent;
+      color: #fff;
+    }
+
+    .button-light:hover {
+      background: #fff;
+      color: var(--forest);
+    }
+
+    .button-arrow {
+      font-size: 18px;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    /* IMAGE FALLBACKS */
+
+    .image-frame {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, #DCE5D6, #819171 55%, #354638);
+    }
+
+    .image-frame img {
+      position: absolute;
+      inset: 0;
+      transition: transform .8s ease;
+    }
+
+    .image-frame:hover img {
+      transform: scale(1.045);
+    }
+
+    .image-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(223,229,218,.85);
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--forest);
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--forest);
+      color: #fff;
+      font-family: var(--serif);
+      font-size: 23px;
+    }
+
+    .brand-name {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -.06em;
+    }
+
+    .brand-name span {
+      color: var(--brand-sage);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .main-nav a {
+      color: var(--body);
+      font-size: 13px;
+      font-weight: 700;
+      transition: color .2s;
+    }
+
+    .main-nav a:hover {
+      color: var(--brand-sage);
+    }
+
+    .header-cta {
+      min-height: 47px;
+      padding: 11px 18px;
+      font-size: 12px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--forest);
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 19px;
+      height: 2px;
+      margin: 5px auto;
+      background: currentColor;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #F1F5ED;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+      padding-top: 85px;
+      padding-bottom: 85px;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 27px;
+      color: var(--forest-soft);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker span {
+      width: 31px;
+      height: 1px;
+      background: var(--brand-sage);
+    }
+
+    .hero h1 {
+      color: var(--heading);
+      font-family: var(--serif);
+      font-size: clamp(52px, 6vw, 76px);
+      font-weight: 500;
+      letter-spacing: -.06em;
+      line-height: .99;
+    }
+
+    .hero h1 em {
+      color: var(--brand-sage);
+      font-weight: 400;
+    }
+
+    .hero-description {
+      max-width: 530px;
+      margin-top: 28px;
+      color: #5D685E;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 35px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 42px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero-note-mark {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--strong-border);
+      border-radius: 50%;
+      color: var(--forest);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: 48% 48% 8px 8px;
+      box-shadow: 0 30px 90px rgba(53,70,56,.2);
+    }
+
+    .hero-image img {
+      object-position: center;
+    }
+
+    .hero-image::after {
+      background: linear-gradient(
+        180deg,
+        rgba(38,56,43,.04),
+        rgba(38,56,43,.38)
+      );
+    }
+
+    .hero-image-caption {
+      position: absolute;
+      z-index: 2;
+      left: -25px;
+      bottom: 35px;
+      width: 250px;
+      padding: 22px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-image-caption strong {
+      display: block;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .hero-image-caption span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .hero-tag {
+      position: absolute;
+      z-index: 2;
+      top: 48px;
+      right: -18px;
+      padding: 12px 16px;
+      background: var(--forest);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    /* INTRO STRIP */
+
+    .intro-strip {
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .intro-strip-inner {
+      min-height: 105px;
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3,1fr);
+      align-items: center;
+      gap: 25px;
+    }
+
+    .intro-strip-title {
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .intro-point {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--body);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .intro-point span {
+      width: 8px;
+      height: 8px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--brand-sage);
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 95px;
+    }
+
+    .about-visual {
+      position: relative;
+      min-height: 500px;
+      padding: 30px;
+      background: var(--paper);
+    }
+
+    .about-image {
+      min-height: 440px;
+      height: 100%;
+    }
+
+    .about-image::after {
+      background: linear-gradient(
+        180deg,
+        transparent 50%,
+        rgba(38,56,43,.32)
+      );
+    }
+
+    .about-stamp {
+      position: absolute;
+      right: -18px;
+      bottom: 12px;
+      z-index: 2;
+      width: 155px;
+      min-height: 155px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--forest);
+      color: #fff;
+      text-align: center;
+    }
+
+    .about-stamp strong {
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .about-stamp span {
+      max-width: 105px;
+      margin-top: 4px;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .about-copy p {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .about-actions {
+      margin-top: 30px;
+    }
+
+    /* OFFERINGS */
+
+    .offerings {
+      background: var(--paper);
+    }
+
+    .offerings-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 35px;
+      margin-bottom: 48px;
+    }
+
+    .offerings-header .section-intro {
+      max-width: 430px;
+      margin-top: 0;
+    }
+
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      border-top: 1px solid var(--strong-border);
+      border-left: 1px solid var(--strong-border);
+    }
+
+    .offering-card {
+      min-height: 290px;
+      padding: 35px 30px;
+      border-right: 1px solid var(--strong-border);
+      border-bottom: 1px solid var(--strong-border);
+      background: rgba(255,255,255,.42);
+      transition: .25s;
+    }
+
+    .offering-card:hover {
+      background: #fff;
+      transform: translateY(-4px);
+    }
+
+    .offering-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--strong-border);
+      border-radius: 50%;
+      color: var(--forest);
+    }
+
+    .offering-icon svg {
+      width: 27px;
+      height: 27px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .offering-card h3 {
+      margin-top: 27px;
+      color: var(--heading);
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .offering-card p {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* FEATURE IMAGE */
+
+    .feature-section {
+      padding: 0;
+      background: var(--paper);
+    }
+
+    .feature-image {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+      background: var(--forest);
+    }
+
+    .feature-image img {
+      object-position: center 48%;
+    }
+
+    .feature-image::after {
+      background: linear-gradient(
+        90deg,
+        rgba(38,56,43,.84),
+        rgba(38,56,43,.3) 65%,
+        rgba(38,56,43,.05)
+      );
+    }
+
+    .feature-content {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: max(32px, calc((100% - var(--container)) / 2));
+      max-width: 550px;
+      transform: translateY(-50%);
+      color: #fff;
+    }
+
+    .feature-content .section-label {
+      color: #D9E2D3;
+    }
+
+    .feature-content .section-label::before {
+      background: var(--gold);
+    }
+
+    .feature-content h2 {
+      margin-top: 20px;
+      font-family: var(--serif);
+      font-size: clamp(38px, 4.5vw, 57px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -.04em;
+    }
+
+    .feature-content p {
+      margin-top: 18px;
+      color: rgba(255,255,255,.8);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* PROCESS */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .process-intro {
+      position: sticky;
+      top: 125px;
+    }
+
+    .process-intro p {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .process-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 55px 1fr;
+      gap: 22px;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-number {
+      color: var(--brand-sage);
+      font-family: var(--serif);
+      font-size: 25px;
+    }
+
+    .process-step h3 {
+      color: var(--heading);
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .process-step p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* CARIBBEAN SECTION */
+
+    .regional-section {
+      position: relative;
+      overflow: hidden;
+      background: var(--forest);
+      color: #fff;
+    }
+
+    .regional-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .regional-section .section-label {
+      color: #D9E2D3;
+    }
+
+    .regional-section .section-label::before {
+      background: var(--gold);
+    }
+
+    .regional-section .section-heading {
+      color: #fff;
+    }
+
+    .regional-section .section-heading em {
+      color: #C9D8C0;
+    }
+
+    .regional-copy p {
+      margin-top: 23px;
+      color: rgba(255,255,255,.73);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .regional-image {
+      position: relative;
+      height: 490px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.25);
+    }
+
+    .regional-image::after {
+      background: linear-gradient(
+        180deg,
+        transparent 50%,
+        rgba(38,56,43,.35)
+      );
+    }
+
+    /* AUDIENCE */
+
+    .audience-header {
+      max-width: 720px;
+      margin-bottom: 45px;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .audience-card {
+      min-height: 260px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .audience-index {
+      color: var(--brand-sage);
+      font-family: var(--serif);
+      font-size: 30px;
+    }
+
+    .audience-card h3 {
+      margin-top: 35px;
+      color: var(--heading);
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .audience-card p {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* CONTACT */
+
+    .contact-section {
+      padding: 95px 0;
+      background: var(--paper-warm);
+    }
+
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 45px;
+      padding: 65px;
+      background: var(--forest);
+      color: #fff;
+    }
+
+    .contact-panel .section-label {
+      color: #D9E2D3;
+    }
+
+    .contact-panel .section-label::before {
+      background: var(--gold);
+    }
+
+    .contact-panel h2 {
+      max-width: 680px;
+      margin-top: 17px;
+      color: #fff;
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 51px);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .contact-panel p {
+      max-width: 600px;
+      margin-top: 16px;
+      color: rgba(255,255,255,.72);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .contact-panel-action .button {
+      white-space: nowrap;
+      background: #fff;
+      color: var(--forest);
+    }
+
+    .contact-panel-action .button:hover {
+      background: var(--leaf-pale);
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      padding: 70px 0 28px;
+      background: #202C23;
+      color: #fff;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr .8fr;
+      gap: 70px;
+      padding-bottom: 55px;
+    }
+
+    .footer-brand .brand {
+      color: #fff;
+    }
+
+    .footer-brand .brand-mark {
+      background: var(--brand-sage);
+      color: var(--forest-deep);
+    }
+
+    .footer-brand p {
+      max-width: 360px;
+      margin-top: 20px;
+      color: rgba(255,255,255,.62);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .footer-column a,
+    .footer-column p {
+      display: block;
+      margin: 11px 0;
+      color: rgba(255,255,255,.65);
+      font-size: 13px;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 23px;
+      border-top: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.48);
+      font-size: 11px;
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,.7);
+    }
+
+    /* MOBILE STICKY CTA */
+
+    .mobile-cta {
+      position: fixed;
+      z-index: 999;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      padding: 11px 15px calc(11px + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 -8px 30px rgba(38,56,43,.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .mobile-cta .button {
+      min-height: 48px;
+      padding: 10px 12px;
+      font-size: 12px;
+    }
+
+    .mobile-cta .button-outline {
+      background: #fff;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1000px) {
+      .main-nav {
+        gap: 17px;
+      }
+
+      .hero-grid {
+        gap: 28px;
+      }
+
+      .about-grid,
+      .process-grid,
+      .regional-grid {
+        gap: 50px;
+      }
+
+      .contact-panel {
+        padding: 48px;
+      }
+    }
+
+    @media(max-width:800px) {
+      .container {
+        width: min(100% - 42px, var(--container));
+      }
+
+      .section {
+        padding: 82px 0;
+      }
+
+      .header-inner {
+        min-height: 74px;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .header-cta {
+        display: none;
+      }
+
+      .main-nav {
+        position: fixed;
+        top: 74px;
+        right: 0;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        max-height: calc(100vh - 74px);
+        overflow-y: auto;
+        padding: 12px 25px 25px;
+        border-bottom: 1px solid var(--border);
+        background: #fff;
+      }
+
+      .main-nav.is-open {
+        display: flex;
+      }
+
+      .main-nav a {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 75px;
+        padding-bottom: 80px;
+      }
+
+      .hero-visual {
+        min-height: 440px;
+      }
+
+      .hero-image-caption {
+        left: 0;
+      }
+
+      .hero-tag {
+        right: 0;
+      }
+
+      .intro-strip-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 25px 0;
+      }
+
+      .intro-strip-title {
+        grid-column: 1 / -1;
+      }
+
+      .about-grid,
+      .process-grid,
+      .regional-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .about-visual {
+        max-width: 540px;
+      }
+
+      .process-intro {
+        position: static;
+      }
+
+      .offerings-header {
+        display: block;
+      }
+
+      .offerings-header .section-intro {
+        margin-top: 18px;
+      }
+
+      .offerings-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .audience-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-panel {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .contact-panel-action {
+        justify-self: start;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .mobile-cta {
+        display: grid;
+      }
+
+      body {
+        padding-bottom: 78px;
+      }
+    }
+
+    @media(max-width:560px) {
+      .container {
+        width: calc(100% - 36px);
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .section-heading {
+        font-size: 39px;
+      }
+
+      .hero-grid {
+        padding-top: 62px;
+        padding-bottom: 62px;
+      }
+
+      .hero h1 {
+        font-size: clamp(48px,13vw,61px);
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 350px;
+      }
+
+      .hero-image-caption {
+        width: 210px;
+        padding: 16px;
+      }
+
+      .hero-image-caption strong {
+        font-size: 20px;
+      }
+
+      .hero-tag {
+        top: 25px;
+        font-size: 9px;
+      }
+
+      .intro-strip-inner {
+        gap: 17px 12px;
+      }
+
+      .intro-strip-title {
+        font-size: 20px;
+      }
+
+      .intro-point {
+        align-items: flex-start;
+        font-size: 11px;
+      }
+
+      .about-visual {
+        min-height: 370px;
+        padding: 18px;
+      }
+
+      .about-image {
+        min-height: 330px;
+      }
+
+      .about-stamp {
+        right: -6px;
+        bottom: 8px;
+        width: 120px;
+        min-height: 120px;
+      }
+
+      .about-stamp strong {
+        font-size: 21px;
+      }
+
+      .offerings-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .offering-card {
+        min-height: 245px;
+        padding: 28px 25px;
+      }
+
+      .feature-image {
+        height: 460px;
+      }
+
+      .feature-content {
+        right: 24px;
+        left: 24px;
+      }
+
+      .feature-content h2 {
+        font-size: 40px;
+      }
+
+      .regional-image {
+        height: 350px;
+      }
+
+      .process-step {
+        grid-template-columns: 40px 1fr;
+        gap: 13px;
+      }
+
+      .process-step h3 {
+        font-size: 22px;
+      }
+
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .audience-card {
+        min-height: auto;
+        padding: 27px;
+      }
+
+      .audience-card h3 {
+        margin-top: 20px;
+      }
+
+      .contact-section {
+        padding: 65px 0;
+      }
+
+      .contact-panel {
+        padding: 36px 25px;
+      }
+
+      .contact-panel h2 {
+        font-size: 37px;
+      }
+
+      .contact-panel-action,
+      .contact-panel-action .button {
+        width: 100%;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .mobile-cta {
+        gap: 7px;
+        padding-inline: 10px;
+      }
+
+      .mobile-cta .button {
+        font-size: 11px;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="brand" href="#home" aria-label="Carib Greens homepage">
+        <span class="brand-mark">C</span>
+        <span class="brand-name">carib<span>greens</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="main-navigation">
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#process">How It Works</a>
+        <a href="#caribbean">Our Approach</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="button header-cta" href="#contact">
+        Start a Conversation <span class="button-arrow">↗</span>
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+          <div class="hero-kicker">
+            <span></span> Agriculture, Reimagined
+          </div>
+
+          <h1>
+            Growing a smarter
+            <em>food future.</em>
+          </h1>
+
+          <p class="hero-description">
+            Carib Greens brings together the vision of intelligent indoor
+            farming, renewable energy and advanced agricultural technology
+            to explore a more resilient approach to food production in
+            the Caribbean.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#solutions">
+              Explore Our Approach <span class="button-arrow">↗</span>
+            </a>
+
+            <a class="button button-outline" href="#about">
+              Discover Carib Greens
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <span class="hero-note-mark">✳</span>
+            <span>Intelligent agriculture. A Caribbean-focused vision.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image image-frame">
+            <img
+              src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=85"
+              alt="Green crops growing in a modern agricultural environment"
+              fetchpriority="high"
+              onerror="this.style.display='none';"
+            >
+          </div>
+
+          <div class="hero-tag">THE LIVING INTELLIGENCE</div>
+
+          <div class="hero-image-caption">
+            <strong>Nature meets innovation.</strong>
+            <span>A visual introduction to technology-enabled growing.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTRO STRIP -->
+    <section class="intro-strip">
+      <div class="container intro-strip-inner">
+
+        <div class="intro-strip-title">
+          A connected approach to modern agriculture.
+        </div>
+
+        <div class="intro-point">
+          <span></span> Controlled environments
+        </div>
+
+        <div class="intro-point">
+          <span></span> Intelligent technology
+        </div>
+
+        <div class="intro-point">
+          <span></span> Renewable energy
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+
+        <div class="about-visual">
+          <div class="about-image image-frame">
+            <img
+              src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1000&q=85"
+              alt="Healthy green plants growing in a cultivated environment"
+              loading="lazy"
+              onerror="this.style.display='none';"
+            >
+          </div>
+
+          <div class="about-stamp">
+            <strong>Caribbean</strong>
+            <span>Focused agricultural vision</span>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <div class="section-label">The Carib Greens Perspective</div>
+
+          <h2 class="section-heading">
+            Where clean energy meets
+            <em>smart agriculture.</em>
+          </h2>
+
+          <p>
+            Food production is evolving. Advances in controlled environments,
+            automation and renewable energy are creating new ways to think
+            about how food can be grown, managed and supplied.
+          </p>
+
+          <p>
+            Carib Greens is positioned around this intersection of agriculture
+            and technology, with a Caribbean-focused vision for intelligent,
+            sustainable indoor farming.
+          </p>
+
+          <p>
+            The ambition is to bring growing systems, energy thinking and
+            agricultural intelligence into one connected approach.
+          </p>
+
+          <div class="about-actions">
+            <a class="button button-outline" href="#process">
+              Understand the Approach <span class="button-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section class="section offerings" id="solutions">
+      <div class="container">
+
+        <div class="offerings-header">
+          <div>
+            <div class="section-label">What We Offer</div>
+
+            <h2 class="section-heading">
+              The building blocks of
+              <em>intelligent growing.</em>
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            Explore the technology areas that shape the Carib Greens concept.
+            Each is part of a connected approach to controlled,
+            technology-led food production.
+          </p>
+        </div>
+
+        <div class="offerings-grid">
+
+          <article class="offering-card">
+            <div class="offering-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M16 27V13"></path>
+                <path d="M16 17C7 17 5 11 5 6c7 0 11 3 11 11Z"></path>
+                <path d="M16 21c0-7 4-11 11-11 0 6-3 11-11 11Z"></path>
+                <path d="M9 27h14"></path>
+              </svg>
+            </div>
+            <h3>Controlled Indoor Farming</h3>
+            <p>
+              A growing environment designed around the management of
+              cultivation conditions, consistency and efficient use of space.
+            </p>
+          </article>
+
+          <article class="offering-card">
+            <div class="offering-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M16 3v5"></path>
+                <path d="M16 24v5"></path>
+                <path d="M3 16h5"></path>
+                <path d="M24 16h5"></path>
+                <path d="m6.8 6.8 3.5 3.5"></path>
+                <path d="m21.7 21.7 3.5 3.5"></path>
+                <path d="m25.2 6.8-3.5 3.5"></path>
+                <path d="m10.3 21.7-3.5 3.5"></path>
+                <circle cx="16" cy="16" r="6"></circle>
+              </svg>
+            </div>
+            <h3>AI-Driven Automation</h3>
+            <p>
+              Artificial intelligence and automation concepts intended to
+              support monitoring, operational awareness and informed decisions.
+            </p>
+          </article>
+
+          <article class="offering-card">
+            <div class="offering-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M11 9h10v8H11z"></path>
+                <path d="M16 17v5"></path>
+                <path d="M12 22h8"></path>
+                <path d="M8 9 5 5"></path>
+                <path d="M24 9l3-4"></path>
+                <path d="M5 5h5"></path>
+                <path d="M22 5h5"></path>
+                <circle cx="16" cy="13" r="2"></circle>
+                <path d="M10 27h12"></path>
+              </svg>
+            </div>
+            <h3>Robotics-Enabled Operations</h3>
+            <p>
+              Robotics and automated systems as part of a future-focused
+              approach to repetitive tasks and growing operations.
+            </p>
+          </article>
+
+          <article class="offering-card">
+            <div class="offering-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <circle cx="16" cy="16" r="5"></circle>
+                <path d="M16 2v4"></path>
+                <path d="M16 26v4"></path>
+                <path d="M2 16h4"></path>
+                <path d="M26 16h4"></path>
+                <path d="m6.1 6.1 2.8 2.8"></path>
+                <path d="m23.1 23.1 2.8 2.8"></path>
+                <path d="m25.9 6.1-2.8 2.8"></path>
+                <path d="m8.9 23.1-2.8 2.8"></path>
+              </svg>
+            </div>
+            <h3>Solar-Powered Energy Systems</h3>
+            <p>
+              Renewable energy is a key part of the stated concept, connecting
+              energy planning with the needs of indoor growing environments.
+            </p>
+          </article>
+
+          <article class="offering-card">
+            <div class="offering-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M5 25V7"></path>
+                <path d="M5 25h23"></path>
+                <path d="m8 20 6-6 5 3 8-9"></path>
+                <path d="M21 8h6v6"></path>
+                <circle cx="14" cy="14" r="1"></circle>
+              </svg>
+            </div>
+            <h3>AI Monitoring & Intelligence</h3>
+            <p>
+              A data-aware approach to observing growing conditions and
+              supporting better-informed operational decisions.
+            </p>
+          </article>
+
+          <article class="offering-card">
+            <div class="offering-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M16 3v26"></path>
+                <path d="M4 16h24"></path>
+                <path d="m7 7 18 18"></path>
+                <path d="M25 7 7 25"></path>
+                <circle cx="16" cy="16" r="10"></circle>
+                <circle cx="16" cy="16" r="3"></circle>
+              </svg>
+            </div>
+            <h3>Data-Driven Optimisation</h3>
+            <p>
+              Connecting information across growing and energy systems to
+              support a more considered and adaptable production model.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL-WIDTH IMAGE FEATURE -->
+    <section class="feature-section">
+      <div class="feature-image image-frame">
+        <img
+          src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=2000&q=85"
+          alt="Greenhouse and cultivated plants"
+          loading="lazy"
+          onerror="this.style.display='none';"
+        >
+
+        <div class="container feature-content">
+          <div class="section-label">The Living Intelligence</div>
+
+          <h2>
+            Technology should work in harmony with nature.
+          </h2>
+
+          <p>
+            A connected agricultural vision brings cultivation,
+            energy and intelligent systems into a more considered
+            approach to growing.
+          </p>
+
+          <a class="button button-light" href="#contact" style="margin-top:26px;">
+            Connect With Us <span class="button-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+      <div class="container process-grid">
+
+        <div class="process-intro">
+          <div class="section-label">How It Works</div>
+
+          <h2 class="section-heading">
+            From energy to harvest,
+            <em>one connected system.</em>
+          </h2>
+
+          <p>
+            Carib Greens describes a model that brings energy,
+            controlled cultivation, monitoring and automation together.
+            The following framework explains the intended relationship
+            between these areas.
+          </p>
+
+          <a class="button button-outline" href="#contact" style="margin-top:28px;">
+            Discuss the Concept <span class="button-arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="process-list">
+
+          <article class="process-step">
+            <div class="process-number">01</div>
+            <div>
+              <h3>Clean Energy Generation</h3>
+              <p>
+                Consider renewable energy as part of the infrastructure
+                supporting a controlled indoor growing environment.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <div class="process-number">02</div>
+            <div>
+              <h3>Controlled Indoor Farming</h3>
+              <p>
+                Establish a managed cultivation environment where growing
+                conditions can be monitored and adjusted.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <div class="process-number">03</div>
+            <div>
+              <h3>AI Monitoring & Intelligence</h3>
+              <p>
+                Use intelligent monitoring to interpret environmental
+                and operational information.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <div class="process-number">04</div>
+            <div>
+              <h3>Robotics & Automation</h3>
+              <p>
+                Explore how automated systems can support selected
+                activities within a technology-enabled farming operation.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <div class="process-number">05</div>
+            <div>
+              <h3>Data-Driven Optimisation</h3>
+              <p>
+                Bring operational information together to help identify
+                opportunities for more informed system management.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <div class="process-number">06</div>
+            <div>
+              <h3>Reliable Local Food Production</h3>
+              <p>
+                Work toward a food production approach designed with
+                local supply needs and the Caribbean context in mind.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CARIBBEAN APPROACH -->
+    <section class="section regional-section" id="caribbean">
+      <div class="container regional-grid">
+
+        <div class="regional-copy">
+          <div class="section-label">A Caribbean-Focused Approach</div>
+
+          <h2 class="section-heading">
+            Designed around the
+            <em>region's possibilities.</em>
+          </h2>
+
+          <p>
+            The Caribbean is the central focus of the Carib Greens vision.
+            Rather than treating indoor farming as a one-size-fits-all idea,
+            the approach starts with the importance of regional context,
+            practical deployment and the needs of communities.
+          </p>
+
+          <p>
+            Specific operating countries, facilities and deployment
+            locations should be confirmed as the project develops.
+          </p>
+        </div>
+
+        <div class="regional-image image-frame">
+          <img
+            src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1100&q=85"
+            alt="Tropical island landscape"
+            loading="lazy"
+            onerror="this.style.display='none';"
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <!-- AUDIENCE -->
+    <section class="section" id="opportunities">
+      <div class="container">
+
+        <div class="audience-header">
+          <div class="section-label">Who This Vision Connects</div>
+
+          <h2 class="section-heading">
+            Building conversations across
+            <em>the food ecosystem.</em>
+          </h2>
+
+          <p class="section-intro">
+            Intelligent agriculture depends on collaboration across
+            different areas of expertise. These are potential audiences
+            for conversations around the Carib Greens approach, not a
+            statement of existing customer or partner relationships.
+          </p>
+        </div>
+
+        <div class="audience-grid">
+
+          <article class="audience-card">
+            <div class="audience-index">01</div>
+            <h3>Agricultural & Food Businesses</h3>
+            <p>
+              Organisations exploring controlled growing environments,
+              technology-led food production and regional supply opportunities.
+            </p>
+          </article>
+
+          <article class="audience-card">
+            <div class="audience-index">02</div>
+            <h3>Technology & Energy Partners</h3>
+            <p>
+              Specialists in automation, robotics, renewable energy
+              and agricultural systems who may contribute relevant expertise.
+            </p>
+          </article>
+
+          <article class="audience-card">
+            <div class="audience-index">03</div>
+            <h3>Investors & Development Partners</h3>
+            <p>
+              Stakeholders interested in exploring the potential of
+              technology-enabled agriculture in Caribbean markets.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+
+        <div class="contact-panel">
+
+          <div class="contact-panel-copy">
+            <div class="section-label">Let's Start a Conversation</div>
+
+            <h2>
+              Interested in the future of intelligent agriculture?
+            </h2>
+
+            <p>
+              Connect with Carib Greens to discuss its indoor farming vision,
+              technology focus and Caribbean-oriented approach.
+            </p>
+          </div>
+
+          <div class="contact-panel-action">
+            <a class="button" href="mailto:caribgreens@mail.com?subject=Carib%20Greens%20Enquiry">
+              Contact Carib Greens <span class="button-arrow">↗</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a class="brand" href="#home" aria-label="Carib Greens homepage">
+            <span class="brand-mark">C</span>
+            <span class="brand-name">carib<span>greens</span></span>
+          </a>
+
+          <p>
+            Exploring the intersection of intelligent indoor farming,
+            renewable energy and agricultural technology with a
+            Caribbean-focused vision.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Explore</h3>
+          <a href="#about">About Carib Greens</a>
+          <a href="#solutions">Our Solutions</a>
+          <a href="#process">How It Works</a>
+          <a href="#caribbean">Caribbean Approach</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <a href="mailto:caribgreens@mail.com">caribgreens@mail.com</a>
+          <p>Caribbean-focused agricultural vision</p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="current-year"></span> Carib Greens. All rights reserved.</span>
+        <a href="#home">Back to top ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY CTA: EXACTLY TWO BUTTONS -->
+  <div class="mobile-cta" aria-label="Quick contact actions">
+    <a class="button button-outline" href="#solutions">
+      Explore Solutions
+    </a>
+
+    <a class="button" href="mailto:caribgreens@mail.com?subject=Carib%20Greens%20Enquiry">
+      Contact Us ↗
+    </a>
+  </div>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNavigation = document.querySelector(".main-nav");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mainNavigation.classList.toggle("is-open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+
+    // Close menu after selecting a navigation link
+    mainNavigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mainNavigation.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        document.body.classList.remove("menu-open");
+      });
+    });
+
+    // Automatically update copyright year
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
